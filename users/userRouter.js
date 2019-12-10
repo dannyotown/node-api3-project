@@ -43,7 +43,7 @@ router.get("/:id/posts", validateUserId(), async (req, res) => {
 router.delete("/:id", validateUserId(), async (req, res) => {
   // do your magic!
   await userDb.remove(req.params.id);
-  res.status(201).send(await userDb.getById(req.params.id));
+  res.status(201).send({ success: "User Deleted Successfully" });
 });
 
 router.put("/:id", validateUserId(), async (req, res) => {

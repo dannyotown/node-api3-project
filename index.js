@@ -1,11 +1,13 @@
 const express = require("express");
 const users = require("./users/userRouter");
+const posts = require("./posts/postRouter");
 
 const server = express();
 server.use(express.json());
 // Bring all our subroutes into the main application
 // (Remember, subroutes can have more children routers)
 server.use("/api/users", users);
+server.use("/api/posts", posts);
 
 server.use((err, req, res, next) => {
   console.log(err),
